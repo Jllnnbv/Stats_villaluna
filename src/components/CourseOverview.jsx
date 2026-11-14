@@ -1,195 +1,537 @@
 import React, { useState } from 'react';
-import { Book, GraduationCap, Clock, Code, Calendar, ListChecks } from 'lucide-react';
+// src/components/CourseOverview.jsx
+import {
+  Book,
+  GraduationCap,
+  Clock,
+  BarChart3,
+  Calendar,
+  ListChecks,
+  Target,
+  Award,
+  Compass,
+  FileSpreadsheet,
+  CheckCircle2,
+} from 'lucide-react';
 
 const CourseOverview = () => {
   const [activeTab, setActiveTab] = useState('prelims');
 
   const courseDetails = [
-    { label: "Course Title", value: "Computer Programming 1", icon: <Code className="text-clay-charcoal" size={20} /> },
-    { label: "Course Code", value: "ITC C105 (BA)", icon: <Book className="text-clay-charcoal" size={20} /> },
-    { label: "Credit Units", value: "3 Unit Lecture", icon: <GraduationCap className="text-clay-charcoal" size={20} /> },
-    { label: "Contact Hours", value: "5 Hours/Week (2h online lecture, 3h lab)", icon: <Clock className="text-clay-charcoal" size={20} /> },
-    { label: "Pre-Requisite", value: "None", icon: <ListChecks className="text-clay-charcoal" size={20} /> },
-    { label: "Placement", value: "1st Semester, 1st Year Level", icon: <Calendar className="text-clay-charcoal" size={20} /> },
+    {
+      label: 'Course Code & Title',
+      value: 'ITC C601 – Statistics for Business Analytics',
+      icon: <BarChart3 size={18} strokeWidth={1.75} />,
+      tone: 'bg-forest-deep text-sand-beige',
+    },
+    {
+      label: 'Credit Units & Hours',
+      value: '3 Units Lecture • 3 Hours/Week',
+      icon: <Clock size={18} strokeWidth={1.75} />,
+      tone: 'bg-sage-earthy text-canvas-warm',
+    },
+    {
+      label: 'Pre-Requisite',
+      value: 'None',
+      icon: <ListChecks size={18} strokeWidth={1.75} />,
+      tone: 'bg-terracotta text-sand-beige',
+    },
+    {
+      label: 'Course Instructor',
+      value: 'Virginia B. Loyola, MIT',
+      icon: <GraduationCap size={18} strokeWidth={1.75} />,
+      tone: 'bg-espresso text-sand-beige',
+    },
+    {
+      label: 'Department & College',
+      value: 'IT Department • College of Computer Studies & Engineering',
+      icon: <Book size={18} strokeWidth={1.75} />,
+      tone: 'bg-forest-pine text-sand-beige',
+    },
+    {
+      label: 'Academic Placement',
+      value: '1st Semester, SY 2026–2027 • BSIT-101BA',
+      icon: <Calendar size={18} strokeWidth={1.75} />,
+      tone: 'bg-sand-beige text-espresso',
+    },
+  ];
+
+  const courseLearningOutcomes = [
+    {
+      code: 'CLO 1',
+      title: 'Descriptive Statistics Fundamentals',
+      text: 'Describe the basic concepts and importance of descriptive statistics, variables, and levels of measurement.',
+      mapping: 'SO: a, b, c',
+    },
+    {
+      code: 'CLO 2',
+      title: 'Central Tendency & Dispersion Calculation',
+      text: 'Calculate measures of central tendency and dispersion for both ungrouped and grouped datasets.',
+      mapping: 'SO: a, b, c, d, g, j',
+    },
+    {
+      code: 'CLO 3',
+      title: 'Statistical Dataset Analysis & Tools',
+      text: 'Analyze datasets using appropriate descriptive statistical methods, graphical charts, normal curve modeling, and software tools.',
+      mapping: 'SO: a, c, d, f, g, l',
+    },
+  ];
+
+  const graduateAttributes = [
+    { code: 'GA1', title: 'Critical & Creative Thinker', desc: 'Applies logical, disciplined analysis and evaluation to interpret information.' },
+    { code: 'GA2', title: 'Effective Communicator & Collaborator', desc: 'Engages diverse stakeholders using quantitative data to build shared understanding.' },
+    { code: 'GA3', title: 'Lifelong Learner', desc: 'Focuses on continuous personal, statistical, and professional development.' },
+    { code: 'GA4', title: 'Ethical & Responsible Citizen', desc: 'Practices high ethical standards and social responsibility aligned with UN SDGs.' },
+    { code: 'GA5', title: 'Professionally Competent', desc: 'Demonstrates broad knowledge, skills, and statistical computing competencies.' },
+    { code: 'GA6', title: 'Technology-enabled Professional', desc: 'Utilizes modern software packages, data analysis tools, and statistical platforms.' },
   ];
 
   const syllabusData = {
     prelims: {
-      title: "Prelim Term",
+      title: 'Prelim Term',
+      badge: 'Weeks 1 – 6',
       weeks: [
         {
-          week: "Weeks 1 - 2",
-          title: "Logic Formulation & Flowcharting",
-          details: "Introduction to program logic formulation, program development cycle, and basic elements of programming. Learn flowchart symbols and program design tools including algorithms, pseudocode, and flowcharts."
+          week: 'Week 1',
+          title: 'Course Orientation & Academic Policies',
+          details:
+            'Mission and Vision of the University, classroom and laboratory policies, sustainability & UN SDGs (SDG 4, 7, 8, 9), and grading system review. Intended Learning Objectives: Familiarize students with policies and align UN SDGs with course competencies.',
+          tasks: 'Faculty-led discussion and interaction (100% participation)',
         },
         {
-          week: "Weeks 3 - 4",
-          title: "Sequential & Decision Control Structures",
-          details: "Develop problem-solving skills using sequential control flowcharts. Transition to decision control structures including simple if, nested if, and complex conditional statements."
+          week: 'Weeks 1 – 2',
+          title: 'Introduction to Big Data Statistics, Variables & Sampling',
+          details:
+            'Overview of big data statistics, characteristics of big data, descriptive vs. inferential statistics, variables and data types, data collection methods, sampling techniques (random, systematic, stratified, and cluster), and observational vs. experimental studies.',
+          tasks: 'Prelim Seatwork #1 (Data Collection) • Prelim Assignment (PT1.1: Data Collection & Sampling Techniques)',
         },
         {
-          week: "Week 5",
-          title: "Repetition Structures & SDG Alignment",
-          details: "Implement loops and repetition control flowcharts using counters and accumulators. Design a project proposal aligning with United Nations Sustainable Development Goals (SDG 3, 4, 8, and 10)."
+          week: 'Week 3',
+          title: 'Frequency Distribution (Categorical & Grouped)',
+          details:
+            'Organizing raw quantitative data, constructing frequency distributions for ungrouped data, and generating complete grouped frequency distribution tables (range, class intervals, class boundaries, midpoints, relative frequencies, and cumulative frequencies).',
+          tasks: 'Prelim Seatwork #2 (Grouped Frequency Distribution) • Prelim Activity #1 (PT1.2: Grouped & Ungrouped Data) • Prelim Quiz #1 (WW1: Concepts, Variables, Data Types)',
         },
         {
-          week: "Week 6",
-          title: "Prelim Assessment",
-          details: "Preliminary Term Summative Assessment and examination to evaluate proficiency in logic formulation, flowcharting, and control flows."
-        }
-      ]
+          week: 'Week 4',
+          title: 'Statistical Graphs & Data Visualization',
+          details:
+            'Constructing and analyzing key statistical graphs: histograms, frequency polygons, cumulative frequency ogives, relative frequency graphs, bar graphs, Pareto graphs, and time series charts using spreadsheet software.',
+          tasks: 'Prelim Activity #2 (PT1.3: Statistical Graphs) • Prelim Quiz #2 (WW2: Frequency Distribution & Graphs)',
+        },
+        {
+          week: 'Week 5',
+          title: 'Individual Prelim Project: UN SDG Problem Analysis',
+          details:
+            'Identifying a problem domain in any UN Sustainable Development Goal (SDG 4: Quality Education, SDG 7: Clean Energy, SDG 8: Decent Work, SDG 9: Industry & Innovation) and applying statistical problem-solving methods to real datasets.',
+          tasks: 'Individual Prelim Project: Problem Analysis (P1)',
+        },
+        {
+          week: 'Week 6',
+          title: 'Preliminary Term Summative Examination',
+          details:
+            'Comprehensive examination evaluating competencies in data collection, sampling techniques, frequency distributions, and statistical graphing.',
+          tasks: 'Prelim Term Examination (PE • 30% of Prelim Grade)',
+        },
+      ],
     },
     midterms: {
-      title: "Midterm Term",
+      title: 'Midterm Term',
+      badge: 'Weeks 7 – 12',
       weeks: [
         {
-          week: "Weeks 7 - 8",
-          title: "Python Programming Fundamentals",
-          details: "Transition to Python syntax. Study literals, operators, variables, characters, strings, and iterative control statements. Deep dive into lists, functions, tuples, dictionaries, modules, and packages."
+          week: 'Weeks 7 – 8',
+          title: 'Data Description & Measures of Central Tendency',
+          details:
+            'Introduction to data description. Computing and interpreting the mean, median, mode, and midrange for ungrouped and grouped datasets. Calculating grouped mean using class midpoints and grouped median using lower boundaries and cumulative frequencies.',
+          tasks: 'Midterm Seatwork #1 (PT2.1: Central Tendency) • Midterm Activity #1 (PT2.2: Grouped Data Central Tendency)',
         },
         {
-          week: "Weeks 9 - 10",
-          title: "OOP Concepts & Core Components",
-          details: "Introduction to Object-Oriented Programming (OOP) using Python. Explore classes, objects, constructors, properties, and methods. Study single, multiple, and multilevel inheritance, abstraction, and encapsulation."
+          week: 'Week 9',
+          title: 'Measures of Variations (Range, Variance & Standard Deviation)',
+          details:
+            'Quantifying data dispersion. Computing range, population variance, sample variance, population standard deviation, and sample standard deviation for ungrouped datasets. Interpreting the coefficient of variation (CV).',
+          tasks: 'Midterm Quiz #1 (WW3: Central Tendency) • Midterm Seatwork #2 (PT2.3: Measures of Variations)',
         },
         {
-          week: "Week 11",
-          title: "Advanced OOP & Python Concepts",
-          details: "Master polymorphism, method overloading, and method overriding. Study advanced Python constructs: generators (yield statement), closures, and anonymous functions (lambdas)."
+          week: 'Week 10',
+          title: 'Grouped Data Variance, Standard Deviation & Modal Class',
+          details:
+            'Calculating variance and standard deviation for grouped frequency distributions. Identifying the modal class and calculating the mode of grouped data using frequency differences (Δ1 and Δ2). Assessing distribution symmetry.',
+          tasks: 'Midterm Activity #2 (PT2.4: Grouped Variation & Mode) • Midterm Quiz #2 (WW4)',
         },
         {
-          week: "Week 12",
-          title: "Midterm Assessment",
-          details: "Midterm Summative Assessment and examination focusing on core Python programming syntax and intermediate OOP implementation."
-        }
-      ]
+          week: 'Week 11',
+          title: 'Midterm Term Project: UN SDG Statistical Problem Analysis',
+          details:
+            'Solving real-world business analytics problems aligned with UN SDGs 4, 7, 8, 9 using measures of central tendency and dispersion to drive evidence-based decisions.',
+          tasks: 'Midterm Project: Problem Analysis (P2)',
+        },
+        {
+          week: 'Week 12',
+          title: 'Midterm Term Summative Examination',
+          details:
+            'Summative assessment covering measures of central tendency, measures of variation, grouped calculations, and statistical problem formulation.',
+          tasks: 'Midterm Term Examination (ME • 30% of Midterm Grade)',
+        },
+      ],
     },
     finals: {
-      title: "Final Term",
+      title: 'Final Term',
+      badge: 'Weeks 13 – 18',
       weeks: [
         {
-          week: "Week 13",
-          title: "Object-Oriented Design & File Handling",
-          details: "Study cohesion, coupling, and design class diagrams using UML. Implement file handling in Python (reading, writing, appending) and robust exception handling using try/except/finally blocks."
+          week: 'Week 13',
+          title: 'Measures of Position (Percentiles, Deciles & Quartiles)',
+          details:
+            'Computing standard scores (z-scores), percentiles, deciles, and quartiles for business datasets. Interpreting percentile ranks and relative standing in organizational evaluation.',
+          tasks: 'Final Term Seatwork #1 (PT3.1: Measures of Position) • Final Term Activity #1 (PT3.2: Positions)',
         },
         {
-          week: "Week 14",
-          title: "GUI Programming & Project Cycle",
-          details: "Create Graphical User Interfaces using Python forms, widgets, and layout managers. Learn event handling and the software development project cycle (information gathering, design, coding, testing, maintenance)."
+          week: 'Week 14',
+          title: 'The Binomial Probability Distribution',
+          details:
+            'Characteristics of binomial experiments, binomial formula, expected values, and solving practical business analytics probability problems.',
+          tasks: 'Final Term Activity #2 (PT3.3: Binomial Distributions) • Final Term Quiz #1 (WW5)',
         },
         {
-          week: "Weeks 15 - 16",
-          title: "Case Study Development",
-          details: "Design and implement a Python program solving a real-world problem using best practices. The project aligns with UN Sustainable Development Goals (SDG 1, 3, 4, and 7)."
+          week: 'Weeks 15 – 16',
+          title: 'The Normal Distribution & Standard Normal Curve',
+          details:
+            'Properties of the continuous normal distribution, the standard normal (z) distribution, and finding areas under the standard normal curve for single, interval, and tail probabilities.',
+          tasks: 'Final Term Activity #3 (PT3.4: Application of Normal Distribution) • Final Term Quiz #2 (WW6)',
         },
         {
-          week: "Week 17",
-          title: "Case Study Presentation",
-          details: "Finalize, simulate, debug, and present the completed case study project and e-portfolio documentation."
+          week: 'Week 17',
+          title: 'Final Term Project & e-Portfolio Submission',
+          details:
+            'Synthesizing statistical analyses on UN SDGs 4, 7, 8, 9, compiling complete coursework, and submitting the formal Student Class E-Portfolio.',
+          tasks: 'Submission of Student E-Portfolio (P3.1) • Final Term Project: Problem Analysis (P3.2)',
         },
         {
-          week: "Week 18",
-          title: "Final Assessment",
-          details: "Final Term Summative Assessment and comprehensive examination covering all course competencies."
-        }
-      ]
-    }
+          week: 'Week 18',
+          title: 'Final Term Summative Examination',
+          details:
+            'Comprehensive final term examination covering all course competencies in Statistics for Business Analytics.',
+          tasks: 'Final Term Examination (FE • 30% of Final Term Grade)',
+        },
+      ],
+    },
   };
 
-  return (
-    <section id="overview" className="space-y-8 mt-6">
-      <div className="text-center space-y-2">
-        <h2 className="font-serif text-3xl font-extrabold text-clay-charcoal tracking-wide">Course Overview</h2>
-        <p className="text-xs text-clay-muted uppercase tracking-widest font-bold">Subject Details & Syllabus Summary</p>
-      </div>
+  const gradingBreakdown = [
+    {
+      term: 'Prelim Grade (30%)',
+      standing: 'Class Standing (70%): Written Works (Quizzes/Seatworks) 25%, Performance Tasks (Lab Activities/Assignments) 25%, Product (Project P1) 20%',
+      exam: 'Major Exam (30%): Prelim Term Examination',
+    },
+    {
+      term: 'Midterm Grade (30%)',
+      standing: 'Class Standing (70%): Written Works (Quizzes/Assignments) 25%, Performance Tasks (Lab Activities) 25%, Product (Project P2) 20%',
+      exam: 'Major Exam (30%): Midterm Term Examination',
+    },
+    {
+      term: 'Final Term Grade (40%)',
+      standing: 'Class Standing (70%): Written Works (Quizzes/Assignments) 25%, Performance Tasks (Lab Activities) 20%, Product (Project P3) 20%',
+      exam: 'Major Exam (30%): Final Term Examination',
+    },
+  ];
 
-      <div className="space-y-6">
-        {/* Course Description */}
-        <div className="clay-card-sage p-6 md:p-8">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-2xl clay-tile flex items-center justify-center text-clay-charcoal">
-              <Book size={22} />
-            </div>
-            <h3 className="font-serif text-2xl font-bold text-clay-charcoal">Course Description</h3>
-          </div>
-          <p className="text-sm text-clay-charcoal leading-relaxed font-medium">
-            This course provides problem solving and computer programming skills for students with no prior experience in the area of programming. Students will use Python, a high-level, object-oriented computer programming language, to learn the fundamentals of computer programming, including how to write, compile, and execute programs. Basic programming-in-the-small abilities and concepts including procedural programming (methods, parameters, return values), basic control structures (sequence, if/else, for loop, while loop), file processing, arrays, and an introduction to defining objects will be covered.
+  const referencesList = [
+    { author: 'Ghosh, T. (2023)', title: 'Practical mathematics for AI and deep learning', publisher: 'BPB Online (Accession No. 0128374) — Official Adopted Textbook' },
+    { author: 'Bluman, A. G. (2025)', title: 'Elementary statistics: a brief version', publisher: 'McGraw Hill LLC (Accession No. 0129449)' },
+    { author: 'Doane, D. P., & Seward, L. E. (2024)', title: 'Applied statistics in business and economics', publisher: 'McGraw-Hill (Accession No. 0129588)' },
+    { author: 'Sirug, W. S. (2023)', title: 'Statistical Analysis for Business', publisher: 'Mindshapers Co., Inc. (Accession No. 0129452)' },
+    { author: 'Lind, D. A., Marchal, W. G., & Samuel, W. A. (2024)', title: 'Statistical techniques in business and Economics', publisher: 'McGraw Hill LLC (Accession No. 0129571)' },
+    { author: 'W3Schools (2023)', title: 'Statistics - Descriptive Statistics', publisher: 'Online Reference (w3schools.com/statistics)' },
+  ];
+
+  return (
+    <section
+      id="section-4"
+      aria-labelledby="overview-heading"
+      className="bento-section-tonal p-4 sm:p-5 space-y-4 animate-fade-in"
+    >
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-sand-muted/45">
+        <div>
+          <span className="inline-block text-[9px] sm:text-[10px] font-extrabold uppercase tracking-[0.12em] text-terracotta mb-0.5">
+            Section 04 • Official Course Syllabus
+          </span>
+          <h2
+            id="overview-heading"
+            className="font-display text-lg sm:text-xl font-extrabold text-forest-deep tracking-tight"
+          >
+            Course Overview & 18-Week Syllabus
+          </h2>
+          <p className="text-[11px] text-espresso/75 font-semibold mt-0.5">
+            OBE Syllabus • 1st Semester SY 2026–2027 • Information Technology Department
           </p>
         </div>
+        <span className="px-3 py-1.5 rounded-full bg-sage-earthy text-canvas-warm text-[10px] sm:text-[11px] font-bold uppercase tracking-wider self-start sm:self-center shrink-0">
+          ITC C601 • 3 Units Lecture
+        </span>
+      </div>
 
-        {/* Key Details Grid */}
-        <div className="clay-card p-6 md:p-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-2xl clay-badge-blue flex items-center justify-center text-clay-charcoal">
-              <ListChecks size={22} />
-            </div>
-            <h3 className="font-serif text-2xl font-bold text-clay-charcoal">Course Specifications</h3>
+      {/* Official Course Description Card */}
+      <div className="bento-card-forest p-4 sm:p-5 space-y-2.5">
+        <div className="flex items-center gap-2.5">
+          <div className="w-9 h-9 bento-icon-circle bg-sand-beige text-espresso shrink-0">
+            <Book size={17} strokeWidth={1.75} />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {courseDetails.map((detail, index) => (
-              <div key={index} className="clay-tile flex items-center gap-4 p-4">
-                <div className={`p-2.5 rounded-2xl shrink-0 ${index % 2 === 0 ? 'clay-badge-sage' : 'clay-badge-blue'}`}>
-                  {detail.icon}
+          <div>
+            <p className="text-[9px] uppercase tracking-[0.12em] text-sand-beige/80 font-bold">
+              Official Course Description (ITC C601)
+            </p>
+            <h3 className="font-display text-base sm:text-lg font-bold text-canvas-warm">
+              Statistics for Business Analytics
+            </h3>
+          </div>
+        </div>
+        <p className="text-[11px] sm:text-xs text-canvas-warm/90 leading-relaxed font-medium pt-0.5">
+          This course aims to help the students understand the overview of the field of big data, with a focus on the statistical techniques for analyzing data. It also helps students to learn and apply several key applications of big data which includes different techniques in data analysis using graphical techniques and hypothesis testing. It also provides a brief overview of software packages application on how they can be used to analyze statistical data.
+        </p>
+      </div>
+
+      {/* Course Specifications Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {courseDetails.map((detail) => (
+          <div key={detail.label} className="bento-card p-3.5 sm:p-4 flex items-center gap-3">
+            <div className={`w-9 h-9 rounded-[12px] flex items-center justify-center shrink-0 ${detail.tone}`}>
+              {detail.icon}
+            </div>
+            <div className="min-w-0">
+              <p className="text-[9px] text-terracotta uppercase tracking-[0.12em] font-bold">
+                {detail.label}
+              </p>
+              <p className="text-[11px] sm:text-xs font-extrabold text-espresso mt-0.5 leading-snug">
+                {detail.value}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Course Learning Outcomes (CLOs) */}
+      <div className="bento-card p-4 sm:p-5 space-y-3.5">
+        <div className="flex items-center gap-2.5 pb-2.5 border-b border-sand-muted/35">
+          <div className="w-9 h-9 bento-icon-circle bg-forest-deep text-sand-beige shrink-0">
+            <Target size={17} strokeWidth={1.75} />
+          </div>
+          <div>
+            <p className="text-[9px] uppercase tracking-[0.12em] text-terracotta font-bold">
+              Competencies & Assessment
+            </p>
+            <h3 className="font-display text-base sm:text-lg font-bold text-espresso">
+              Course Learning Outcomes (CLOs)
+            </h3>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-3">
+          {courseLearningOutcomes.map((clo) => (
+            <div key={clo.code} className="bento-tile p-3.5 sm:p-4 flex flex-col justify-between space-y-2">
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="px-2.5 py-0.5 rounded-full bg-forest-deep text-sand-beige text-[10px] font-bold uppercase tracking-wider">
+                    {clo.code}
+                  </span>
+                  <span className="text-[9px] text-terracotta font-bold uppercase">
+                    {clo.mapping}
+                  </span>
                 </div>
-                <div>
-                  <p className="text-[10px] text-clay-muted uppercase tracking-widest font-bold">{detail.label}</p>
-                  <p className="text-xs sm:text-sm font-bold text-clay-charcoal mt-0.5">{detail.value}</p>
-                </div>
+                <h4 className="font-display text-xs sm:text-sm font-bold text-espresso leading-snug">
+                  {clo.title}
+                </h4>
+                <p className="text-[11px] sm:text-xs text-espresso/85 leading-relaxed font-medium">
+                  {clo.text}
+                </p>
               </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* JRU Graduate Attributes Grid */}
+      <div className="bento-card p-4 sm:p-5 space-y-3.5">
+        <div className="flex items-center gap-2.5 pb-2.5 border-b border-sand-muted/35">
+          <div className="w-9 h-9 bento-icon-circle bg-sage-earthy text-canvas-warm shrink-0">
+            <Award size={17} strokeWidth={1.75} />
+          </div>
+          <div>
+            <p className="text-[9px] uppercase tracking-[0.12em] text-terracotta font-bold">
+              Institutional Outcomes
+            </p>
+            <h3 className="font-display text-base sm:text-lg font-bold text-espresso">
+              JRU Graduate Attributes (GA1 – GA6)
+            </h3>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {graduateAttributes.map((ga) => (
+            <div key={ga.code} className="bento-tile p-3.5 space-y-1">
+              <div className="flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-sand-beige text-espresso text-[10px] font-extrabold flex items-center justify-center shrink-0">
+                  {ga.code.replace('GA', '')}
+                </span>
+                <h4 className="font-display text-xs font-bold text-forest-deep truncate">
+                  {ga.title}
+                </h4>
+              </div>
+              <p className="text-[10px] sm:text-[11px] text-espresso/80 font-medium leading-snug">
+                {ga.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Interactive 18-Week Syllabus Outline (Screen View) */}
+      <div className="bento-card p-4 sm:p-5 space-y-4 print:hidden">
+        <div className="flex items-center justify-between border-b border-sand-muted/35 pb-3.5 flex-wrap gap-3">
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 bento-icon-circle bg-forest-deep text-sand-beige shrink-0">
+              <Calendar size={17} strokeWidth={1.75} />
+            </div>
+            <div>
+              <p className="text-[9px] uppercase tracking-[0.12em] text-terracotta font-bold">
+                18-Week Term Breakdown
+              </p>
+              <h3 className="font-display text-base sm:text-lg font-bold text-espresso">
+                Weekly Course Outline
+              </h3>
+            </div>
+          </div>
+
+          <div className="flex gap-1 bg-canvas-tonal p-1 rounded-full border border-sand-muted/40">
+            {Object.keys(syllabusData).map((termKey) => (
+              <button
+                key={termKey}
+                type="button"
+                onClick={() => setActiveTab(termKey)}
+                className={`px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider transition-all ${
+                  activeTab === termKey
+                    ? 'bg-forest-deep text-sand-beige shadow-sm'
+                    : 'text-espresso/75 hover:text-espresso'
+                }`}
+              >
+                {syllabusData[termKey].title.split(' ')[0]}
+              </button>
             ))}
           </div>
         </div>
 
-        {/* Interactive Syllabus Timeline */}
-        <div className="clay-card p-6 md:p-8 space-y-6">
-          <div className="flex items-center justify-between border-b border-clay-muted/15 pb-4 flex-wrap gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl clay-badge-sage flex items-center justify-center text-clay-charcoal">
-                <Calendar size={22} />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {syllabusData[activeTab].weeks.map((item) => (
+            <div key={item.week} className="bento-tile p-3.5 sm:p-4 flex flex-col justify-between space-y-2">
+              <div className="space-y-1">
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <span className="text-[9px] bg-sage-earthy text-canvas-warm font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                    {item.week}
+                  </span>
+                  <span className="text-[9px] font-bold text-terracotta uppercase tracking-wider">
+                    {syllabusData[activeTab].title}
+                  </span>
+                </div>
+                <h4 className="font-display text-xs sm:text-sm font-bold text-forest-deep leading-snug">
+                  {item.title}
+                </h4>
+                <p className="text-[11px] sm:text-xs text-espresso/85 leading-relaxed font-medium">
+                  {item.details}
+                </p>
               </div>
-              <h3 className="font-serif text-2xl font-bold text-clay-charcoal">Syllabus Outline</h3>
+
+              <div className="pt-2 border-t border-sand-muted/25 text-[10px] sm:text-[11px] text-espresso/80 font-semibold flex items-start gap-1.5">
+                <CheckCircle2 size={12} className="text-sage-earthy shrink-0 mt-0.5" />
+                <span>{item.tasks}</span>
+              </div>
             </div>
-            
-            {/* Term Selectors — Puffed 3D Clay Pills */}
-            <div className="flex gap-2 clay-inset p-1.5 rounded-full">
-              {Object.keys(syllabusData).map((termKey) => (
-                <button
-                  key={termKey}
-                  onClick={() => setActiveTab(termKey)}
-                  className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-                    activeTab === termKey
-                      ? 'clay-pill-active'
-                      : 'text-clay-muted hover:text-clay-charcoal'
-                  }`}
-                >
-                  {syllabusData[termKey].title.split(' ')[0]}
-                </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Print-Only Complete Syllabus View (All 3 Terms Expanded for PDF) */}
+      <div className="hidden print:block space-y-4">
+        {Object.entries(syllabusData).map(([key, term]) => (
+          <div key={key} className="bento-card p-4 space-y-2.5">
+            <h3 className="font-display text-base font-extrabold text-forest-deep border-b border-sand-muted pb-1">
+              {term.title} ({term.badge})
+            </h3>
+            <div className="grid grid-cols-2 gap-3">
+              {term.weeks.map((item) => (
+                <div key={item.week} className="bento-tile p-2.5 space-y-1">
+                  <p className="text-[9px] font-bold uppercase text-terracotta">{item.week}</p>
+                  <p className="text-[11px] font-bold text-espresso">{item.title}</p>
+                  <p className="text-[10px] text-espresso/85">{item.details}</p>
+                  <p className="text-[9px] text-sage-earthy font-semibold pt-1">{item.tasks}</p>
+                </div>
               ))}
             </div>
           </div>
+        ))}
+      </div>
 
-          {/* Active Term Timeline */}
-          <div className="relative border-l-2 border-clay-sage ml-3 space-y-6 py-2">
-            {syllabusData[activeTab].weeks.map((item, index) => (
-              <div key={index} className="relative pl-7 group">
-                <div className="absolute -left-[7px] top-4 w-3 h-3 rounded-full clay-badge-sage group-hover:scale-125 transition-transform duration-300"></div>
-                <div className="clay-tile p-4 space-y-1.5">
-                  <div className="flex items-center gap-2.5 flex-wrap">
-                    <span className="text-[10px] clay-badge-blue text-clay-charcoal font-extrabold px-3 py-0.5 rounded-full uppercase tracking-wider">
-                      {item.week}
-                    </span>
-                    <h4 className="font-serif text-base font-bold text-clay-charcoal">
-                      {item.title}
-                    </h4>
-                  </div>
-                  <p className="text-xs sm:text-sm text-clay-charcoal/90 leading-relaxed font-medium pt-1">
-                    {item.details}
-                  </p>
-                </div>
-              </div>
-            ))}
+      {/* Grading System and Components */}
+      <div className="bento-card p-4 sm:p-5 space-y-3.5">
+        <div className="flex items-center gap-2.5 pb-2.5 border-b border-sand-muted/35">
+          <div className="w-9 h-9 bento-icon-circle bg-espresso text-sand-beige shrink-0">
+            <BarChart3 size={17} strokeWidth={1.75} />
+          </div>
+          <div>
+            <p className="text-[9px] uppercase tracking-[0.12em] text-terracotta font-bold">
+              Institutional Grading Policy
+            </p>
+            <h3 className="font-display text-base sm:text-lg font-bold text-espresso">
+              Grading System & Components
+            </h3>
           </div>
         </div>
+
+        <div className="grid grid-cols-1 gap-3">
+          {gradingBreakdown.map((grade) => (
+            <div key={grade.term} className="bento-tile p-3.5 sm:p-4 space-y-1.5 flex flex-col justify-between">
+              <div>
+                <h4 className="font-display text-xs sm:text-sm font-bold text-forest-deep pb-1 border-b border-sand-muted/30">
+                  {grade.term}
+                </h4>
+                <p className="text-[11px] sm:text-xs text-espresso/85 leading-relaxed font-medium pt-1.5">
+                  {grade.standing}
+                </p>
+              </div>
+              <div className="pt-1.5 border-t border-sand-muted/20 text-[11px] font-bold text-terracotta">
+                {grade.exam}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Adopted Textbooks & References */}
+      <div className="bento-card p-4 sm:p-5 space-y-3.5">
+        <div className="flex items-center gap-2.5 pb-2.5 border-b border-sand-muted/35">
+          <div className="w-9 h-9 bento-icon-circle bg-forest-pine text-sand-beige shrink-0">
+            <FileSpreadsheet size={17} strokeWidth={1.75} />
+          </div>
+          <div>
+            <p className="text-[9px] uppercase tracking-[0.12em] text-terracotta font-bold">
+              Course Literature & Reading List
+            </p>
+            <h3 className="font-display text-base sm:text-lg font-bold text-espresso">
+              Adopted Textbooks & References
+            </h3>
+          </div>
+        </div>
+
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+          {referencesList.map((ref) => (
+            <li key={ref.title} className="bento-tile p-3 text-[11px] space-y-0.5">
+              <p className="font-bold text-forest-deep">{ref.author}</p>
+              <p className="italic font-medium text-espresso">{ref.title}</p>
+              <p className="text-[10px] text-terracotta">{ref.publisher}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
